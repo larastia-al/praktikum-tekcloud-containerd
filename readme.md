@@ -22,39 +22,43 @@
    sudo apt-get update
    sudo apt-get install -y containerd
    ```
+   
    ![Update dan Instal Containerd](foto/1.png)
 
 3. **Konfigurasi Containerd**:
-   buat file konfigurasi default untuk Containerd
+   - buat file konfigurasi default untuk Containerd
    ```bash
    sudo mkdir -p /etc/containerd
    sudo containerd config default | sudo tee /etc/containerd/config.toml
    ```
+   
    ![Update dan Instal Containerd](foto/2.png)
 
 4. **Mulai dan Verifikasi Containerd**:
-   Jalankan Containerd:
+   - Jalankan Containerd:
    ```bash
    sudo systemctl start containerd
    ```
-   Verifikasi bahwa Containerd berjalan dengan benar
+   - Verifikasi bahwa Containerd berjalan dengan benar
    ```bash
    sudo systemctl status containerd
    ```
+   
    ![Verifikasi containerd berjalan](foto/3.png)
 
 ### 3. Menjalankan Container Menggunakan Containerd
 1. **Menarik Image dari Docker Hub**:
-   Gunakan CLI `ctr` untuk menarik image:
+   - Gunakan CLI `ctr` untuk menarik image:
    ```bash
    sudo ctr image pull docker.io/library/nginx:latest
    ```
 
 2. **Menjalankan Container**:
-   Jalankan container dengan image Nginx:
+   - Jalankan container dengan image Nginx:
    ```bash
    sudo ctr run --rm -t docker.io/library/nginx:latest nginx-test
    ```
-   Perintah ini akan menjalankan container Nginx dan menghapusnya setelah selesai (`--rm`).
+   - Perintah ini akan menjalankan container Nginx dan menghapusnya setelah selesai (`--rm`).
+     
    ![Menjalankan container menggunakan Containerd](foto/4.png)
 
